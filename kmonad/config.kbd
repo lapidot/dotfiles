@@ -1,0 +1,3 @@
+(defcfg
+  input  (device-file "platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "KMonad kbd"))

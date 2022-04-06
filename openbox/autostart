@@ -1,0 +1,35 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# If you want to use GNOME config tools...
+#
+#if test -x /usr/lib/x86_64-linux-gnu/gnome-settings-daemon >/dev/null; then
+#  /usr/lib/x86_64-linux-gnu/gnome-settings-daemon &
+#elif which gnome-settings-daemon >/dev/null 2>&1; then
+#  gnome-settings-daemon &
+#fi
+
+# If you want to use XFCE config tools...
+#
+#xfce-mcs-manager &
+xrdb ~/.Xresources &
+
+setxkbmap -layout "us,he" -opiton "grp:alt_shift_toggle" &
+
+nitrogen --restore &
+
+tint2 &
+
+conky &
+
+polybar main &
+
+#for allowing pkexec to request sudo credentials when needed
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
+#kmonad - keyboard altering stuff
+kmonad-0.4.1-linux ~/.config/kmonad/arrows.kbd
+
